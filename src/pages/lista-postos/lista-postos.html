@@ -1,0 +1,51 @@
+<ion-header>
+
+  <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+  <ion-navbar>
+    <ion-title>
+      Postos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bgg">
+
+  <ion-list class="bgg">
+    <button class="bgg" detail-none (click)="expandItem(postos)" ion-item *ngFor="let postos of posto">
+      <ion-thumbnail item-start>
+        <img src={{postos.avatar}}>
+      </ion-thumbnail>
+      <h2>{{postos.nome}} </h2>
+
+      <p>Atualizado em :
+        <b style="color : green">{{postos.atualizado}}</b>
+      </p>
+      <button ion-button icon-left clear small (click)="map(parceiros.endereco)">
+        <ion-icon class="icon-gps" name="pin"></ion-icon>
+        <p style="font-size: 7pt">{{postos.endereco}}</p>
+      </button>
+      <expandable [expandHeight]="itemExpandHeight" [expanded]="postos.expanded" style="width: 100%;">
+
+        <b class="font1">G.Comum</b>
+        <ion-icon name="arrow-round-forward"></ion-icon> R$:{{postos.gComum}}
+        <br>
+        <b class="font1">G.Aditivada</b>
+        <ion-icon name="arrow-round-forward"></ion-icon> R$:{{postos.gAditivada}}
+        <br>
+        <b class="font1">D.Comum</b>
+        <ion-icon name="arrow-round-forward"></ion-icon> R$: {{postos.dComum}}
+        <br>
+        <b class="font1">D.S10</b>
+        <ion-icon name="arrow-round-forward"></ion-icon> R$: {{postos.dS10}}
+        <br>
+        <b class="font1">Etanol</b>
+        <ion-icon name="arrow-round-forward"></ion-icon> R$: {{postos.etanol}}
+        <br>
+ 
+
+      </expandable>
+
+    </button>
+  </ion-list>
+
+</ion-content>
